@@ -104,3 +104,6 @@ html, body {
 .station:hover {
     color: red;
 }
+.station p {
+    margin: 0;
+}
