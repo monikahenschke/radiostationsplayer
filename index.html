@@ -4,6 +4,7 @@
           <meta charset="UTF-8" />
           <title>Odtwarzacz stacji radiowych Country</title>
           <link rel="stylesheet" href="style.css">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
      <body>
          <div class="main">
@@ -15,47 +16,37 @@
                         <div class="circle"><div class="circle__animation"></div></div>
                     </div>
                     <div class="buttons">
-                        <a href="javascript:void(0);" class="play button">
-                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjE2My44NjFweCIgaGVpZ2h0PSIxNjMuODYxcHgiIHZpZXdCb3g9IjAgMCAxNjMuODYxIDE2My44NjEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE2My44NjEgMTYzLjg2MTsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTM0Ljg1NywzLjYxM0MyMC4wODQtNC44NjEsOC4xMDcsMi4wODEsOC4xMDcsMTkuMTA2djEyNS42MzdjMCwxNy4wNDIsMTEuOTc3LDIzLjk3NSwyNi43NSwxNS41MDlMMTQ0LjY3LDk3LjI3NQ0KCQljMTQuNzc4LTguNDc3LDE0Ljc3OC0yMi4yMTEsMC0zMC42ODZMMzQuODU3LDMuNjEzeiIvPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" />
-                        </a>
-                        <a href="javascript:void:(0);" class="pause button">
-                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNDcuNjA3IDQ3LjYwNyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcuNjA3IDQ3LjYwNzsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTE3Ljk5MSw0MC45NzZjMCwzLjY2Mi0yLjk2OSw2LjYzMS02LjYzMSw2LjYzMWwwLDBjLTMuNjYyLDAtNi42MzEtMi45NjktNi42MzEtNi42MzFWNi42MzFDNC43MjksMi45NjksNy42OTgsMCwxMS4zNiwwDQoJCWwwLDBjMy42NjIsMCw2LjYzMSwyLjk2OSw2LjYzMSw2LjYzMVY0MC45NzZ6Ii8+DQoJPHBhdGggZD0iTTQyLjg3Nyw0MC45NzZjMCwzLjY2Mi0yLjk2OSw2LjYzMS02LjYzMSw2LjYzMWwwLDBjLTMuNjYyLDAtNi42MzEtMi45NjktNi42MzEtNi42MzFWNi42MzENCgkJQzI5LjYxNiwyLjk2OSwzMi41ODUsMCwzNi4yNDYsMGwwLDBjMy42NjIsMCw2LjYzMSwyLjk2OSw2LjYzMSw2LjYzMVY0MC45NzZ6Ii8+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" />
-                        </a>
+                        <button class="play button">
+                            <img src="play.svg" />
+                        </button>
+                        <button class="pause button">
+                            <img src="pause.svg" />
+                        </button>
                     </div>
                 </div>
 
                 <div class="stationList">
                     <p>Dostępne stacje: </p>
                     <div class="stations">
-                        <a class="station" href="javascript:void(0);" >
+                        <button class="station" data-station-id="cat-country">
                             <span>1. Cat Country 98.1</span>
-                            <audio class="audio" src="http://17573.live.streamtheworld.com/WCTKFMAAC.aac" type="audio/aac">
-                            </audio>
-                        </a>
+                        </button>
 
-                        <a class="station" href="#">
+                        <button class="station" data-station-id="americas-country">
                             <span>2. America's Country</span>
-                            <audio class="audio" src="https://ais-sa2.cdnstream1.com/1976_128.mp3" type="audio/mp3">
-                            </audio>
-                        </a>
+                        </buttton>
 
-                        <a class="station" href="#"  >
+                        <button class="station" data-station-id="ktwb-big-country">
                             <span>3. KTWB Big Country 92.5</span>
-                            <audio class="audio" src="https://14083.live.streamtheworld.com/KTWBFMAAC.aac" type="audio/aac">
-                            </audio>
-                        </a>
+                        </button>
 
-                        <a class="station" href="#"  >
+                        <button class="station" data-station-id="country-208">
                             <span>4. Country 108</span>
-                            <audio class="audio" src="http://icepool.silvacast.com/COUNTRY108.mp3" type="audio/mp3">
-                            </audio>
-                        </a>
+                        </button>
 
-                        <a class="station" href="#"  >
+                        <button class="station" data-station-id="kickin-country">
                             <span>5. Kickin' Country 181.fm</span>
-                            <audio class="audio" src="https://listen.181fm.com/181-kickincountry_128k.mp3" type="audio/mp3">
-                            </audio>
-                        </a>
+                        </button>
                     </div>
                 </div>
 
