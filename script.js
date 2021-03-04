@@ -21,7 +21,9 @@ window.addEventListener('DOMContentLoaded',() => {
         if (selectedRadioStation) {
                 audio.setAttribute('src', selectedRadioStation.link);
                 audio.play();
-        // TODO: fix asynchronous play/pause issue        }
+
+                // TODO: fix asynchronous play/pause issue        
+        }
 
     
     }
