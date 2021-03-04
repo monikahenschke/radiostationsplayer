@@ -12,20 +12,17 @@ window.addEventListener('DOMContentLoaded',() => {
     
     const stations = document.querySelectorAll('.station');
     const audio = document.querySelector('#audio');
-    let currentRadioStation;
     
-    function stationSelection(){
+    function stationSelection(event){
 
-        currentRadioStation = this.getAttribute('data-station-id');
+        const newRadioStation = event.currentTarget.getAttribute('data-station-id');
+        const selectedRadioStation = radioStations.find(station => station.name === newRadioStation);
 
-        radioStations.forEach(function(radioStation) {
+        if (selectedRadioStation) {
+                audio.setAttribute('src', selectedRadioStation.link);
+                audio.play();
+        // TODO: fix asynchronous play/pause issue        }
 
-            if(radioStation.name === currentRadioStation) {
-                audio.src = radioStation.link;
-            }
-        });
-
-        audio.play();
     
     }
     
