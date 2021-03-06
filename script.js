@@ -13,30 +13,28 @@ window.addEventListener('DOMContentLoaded',() => {
     const stations = document.querySelectorAll('.station');
     const audio = document.querySelector('#audio');
     const currentRadioStationNameHeader = document.querySelector('.station-name');
-    let currentRadioStation;
-    let currentRadioStationName;
     let lastChoice;
     
-    function stationSelection(){
+    function stationSelection(event){
 
-        currentRadioStation = this.getAttribute('data-station-id');
-        currentRadioStationName = this.querySelector('span');
+        const newRadioStation = event.currentTarget.getAttribute('data-station-id');
+        const selectedRadioStation = radioStations.find(station => station.name === newRadioStation);
+        const currentRadioStationName = this.querySelector('span');
         
         if(lastChoice) {
             lastChoice.classList.remove("active");
         }
+        event.currentTarget.classList.add("active");
+        lastChoice = event.currentTarget;
 
-        radioStations.forEach(function(radioStation) {
+        if (selectedRadioStation) {
+                audio.setAttribute('src', selectedRadioStation.link);
+                audio.play();
 
-            if(radioStation.name === currentRadioStation) {
-                audio.src = radioStation.link;
-            }
-        });
+                // TODO: fix asynchronous play/pause issue        
+        }
         currentRadioStationNameHeader.innerHTML = currentRadioStationName.innerText;
-        audio.play();
-
-        this.classList.add("active");
-        lastChoice = this;
+ 
     
     }
     
