@@ -14,29 +14,35 @@ window.addEventListener('DOMContentLoaded',() => {
     const audio = document.querySelector('#audio');
     const currentRadioStationNameHeader = document.querySelector('.station-name');
     const playButton = document.querySelector('.play.button');
+    let chosenRadioStation;
     let lastChoice;
-    let isRadioStationChoosen;
+
     
     function stationSelection(event){
 
         const newRadioStation = event.currentTarget.getAttribute('data-station-id');
         const selectedRadioStation = radioStations.find(station => station.id === newRadioStation);
-        
-        if(lastChoice) {
-            lastChoice.classList.remove("active");
-        }
-        event.currentTarget.classList.add("active");
-        lastChoice = event.currentTarget;
 
         if (selectedRadioStation) {
                 audio.setAttribute('src', selectedRadioStation.link);
                 audio.play();
+                changeColorRadioStationName(selectedRadioStation.id);
                 changeHeaderRadioStationName(selectedRadioStation.name);
 
                 // TODO: fix asynchronous play/pause issue        
         }
-        isRadioStationChoosen = true;
-    
+        chosenRadioStation = selectedRadioStation;    
+    }
+
+    function changeColorRadioStationName(radioStationId) {
+
+        let radioStationButton = document.querySelector(`.station[data-station-id="${radioStationId}"]`)
+
+        if(lastChoice) {
+            lastChoice.classList.remove("active");
+        }
+        radioStationButton.classList.add("active");
+        lastChoice = radioStationButton;
     }
 
     function changeHeaderRadioStationName(radioStationName) {
@@ -51,25 +57,28 @@ window.addEventListener('DOMContentLoaded',() => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    function setCurrentRadioStation(radioStation) {
+
+        audio.pause();
+        audio.setAttribute('src', radioStation.link);
+        selectedRadioStation = radioStation;
+        changeColorRadioStationName(radioStation.id);
+        changeHeaderRadioStationName(radioStation.name);
+    }
     
+    function getRandomStation(){
+        const randomInt = getRandomInt(0, radioStations.length - 1);
+        return radioStations[randomInt];
+    }
+
     function playStation() {
 
-        if(isRadioStationChoosen) {
-            audio.play();
+        if(!chosenRadioStation) {
+            chosenRadioStation = getRandomStation();
+        } 
 
-        } else {
-            const randomInt = getRandomInt(0,(radioStations.length - 1))
-            const randomStation = radioStations[randomInt];
-            
-            if(randomStation) {
-
-                audio.setAttribute('src', randomStation.link);
-                audio.play();
-                changeHeaderRadioStationName(randomStation.name);
-            }
-           
-        }
-
+        setCurrentRadioStation(chosenRadioStation);
+        audio.play();
 
 
 
