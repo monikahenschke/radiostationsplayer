@@ -14,6 +14,7 @@ window.addEventListener('DOMContentLoaded',() => {
     const audio = document.querySelector('#audio');
     const currentRadioStationNameHeader = document.querySelector('.station-name');
     const playButton = document.querySelector('.play.button');
+    const pauseButton = document.querySelector('.pause.button');
     let chosenRadioStation;
     let lastChoice;
 
@@ -80,11 +81,16 @@ window.addEventListener('DOMContentLoaded',() => {
         setCurrentRadioStation(chosenRadioStation);
         audio.play();
 
+    }
 
-
+    function pauseStation(){
+        if(chosenRadioStation) {
+            audio.pause();
+        } 
     }
     
     playButton.addEventListener('click', playStation);
+    pauseButton.addEventListener('click', pauseStation);
     stations.forEach(station => station.addEventListener('dblclick', stationSelection));
 
 
