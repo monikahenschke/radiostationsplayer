@@ -9,7 +9,9 @@
      <body>
          <div class="main">
              <h1>Odtwarzacz stacji radiowych Country! </h1>
-                <div class="cassette">
+            <div class="container">
+                <div class="left">
+                    <div class="cassette">
                     <div class="station-name">Nazwa aktualnie odtwarzanej stacji</div>
                     <div class="player">
                         <div class="circle"><div class="circle__animation"></div></div>
@@ -27,6 +29,19 @@
                         <source src="" type="audio/mp3">
                     </audio>
                 </div>
+                <div class="addNewStation">
+                    <span>Za mało stacji radiowych? Dodaj nową!</span>
+                    <button class="buttonBlack">Dodaj</button>
+                </div>
+                <div class="form">
+                    <input placeholder="Nazwa" type="text" name="newRadioStationName" id="newRadioStationName">
+                    <div class="validationInput">
+                        <input placeholder="URL" type="text" name="newRadioStationURL" id="newRadioStationURL">
+                        <span class="error"></span>
+                    </div>
+                    <button class="buttonBlack" id="addNewRadioStationButton" type="submit" disabled>Wyślij</button>
+                </div>
+            </div>
 
                 <div class="stationList">
                     <p>Dostępne stacje: </p>
@@ -52,9 +67,11 @@
                         </button>
                     </div>
                 </div>
-
+            </div>
+          
          </div>
      </body>
      <script type="text/javascript" src="script.js"></script>
+     <script type="text/javascript" src="validate.js"></script>
 
 </html>

@@ -15,6 +15,8 @@ window.addEventListener('DOMContentLoaded',() => {
     const currentRadioStationNameHeader = document.querySelector('.station-name');
     const playButton = document.querySelector('.play.button');
     const pauseButton = document.querySelector('.pause.button');
+    const addNewRadioStationButton = document.querySelector('.buttonBlack');
+    const addNewRadioStationForm = document.querySelector('.form');
     let chosenRadioStation;
     let lastChoice;
 
@@ -83,14 +85,22 @@ window.addEventListener('DOMContentLoaded',() => {
 
     }
 
+
     function pauseStation(){
         if(chosenRadioStation) {
             audio.pause();
         } 
     }
-    
+    function showForm() {
+        addNewRadioStationForm.classList.add('active');
+    }
+
+
+
+
     playButton.addEventListener('click', playStation);
     pauseButton.addEventListener('click', pauseStation);
+    addNewRadioStationButton.addEventListener('click', showForm);
     stations.forEach(station => station.addEventListener('dblclick', stationSelection));
 
 

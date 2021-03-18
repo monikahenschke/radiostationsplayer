@@ -90,6 +90,9 @@ html, body {
     cursor: pointer;
    
 }
+.button:focus {
+    outline: none;
+}
 .stationList p {
     font-size: 20px;
     text-align: center;
@@ -101,6 +104,31 @@ html, body {
 .stations {
     display: flex;
     flex-direction: column;
+    padding-left: 20px;
+}
+.addNewStation {
+    font-weight: 600;
+    font-size: 18px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.buttonBlack {
+    background: #000000;
+    color: #FFC04C;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 20%;
+    cursor: pointer;
+    border: none;
+}
+.buttonBlack:focus {
+    border: none;
+    outline: none;
+}
+.buttonBlack:disabled {
+
+    opacity: 0.6;
 }
 .station {
     color: #000000;
@@ -112,6 +140,9 @@ html, body {
     border: none;
     text-align: left;
 
+}
+.container {
+    display: flex;
 }
 
 .station.active {
@@ -126,4 +157,36 @@ outline: none;
 }
 .station p {
     margin: 0;
+}
+.form {
+    text-align: center;
+    padding-top: 20px;
+    visibility: hidden;
+}
+.form.active {
+    visibility: visible;
+}
+.form input {
+    height: 40px;
+    border-radius: 10px;
+    width: 180px;
+    border: #e59400 1px solid;
+    padding: 0 15px;
+    margin-bottom: 8px;
+}
+.form input:focus {
+    outline: none;
+}
+.validationInput {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+.validationInput span {
+    color: red;
+    position: absolute;
+    top: 100%;
 }
