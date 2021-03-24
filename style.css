@@ -92,6 +92,7 @@ html, body {
 }
 .button:focus {
     outline: none;
+    border: 1px solid #000000;
 }
 .stationList p {
     font-size: 20px;
@@ -123,8 +124,10 @@ html, body {
     border: none;
 }
 .buttonBlack:focus {
-    border: none;
+    border: 1px solid #000000;
     outline: none;
+    background: #FFC04C;
+    color: #000000;
 }
 .buttonBlack:disabled {
 
@@ -153,6 +156,7 @@ html, body {
 }
 .station:focus {
 border: none;
+border-bottom: 1px solid #000000;
 outline: none;
 }
 .station p {
@@ -176,6 +180,8 @@ outline: none;
 }
 .form input:focus {
     outline: none;
+    border: 1px solid #000000;
+
 }
 .validationInput {
     display: flex;

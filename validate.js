@@ -6,7 +6,7 @@ const submitButton = document.querySelector('#addNewRadioStationButton');
 
 function ext(url) {
     const extension = (url = url.substr(1 + url.lastIndexOf("/")).split('?')[0]).split('#')[0].substr(url.lastIndexOf("."));
-    return extension === '.mp4' || extension === '.aac';
+    return extension === '.m4a' || extension === '.aac' || extension === '.mp3';
 }
 
 function isValidHttpUrl(string) {
@@ -31,7 +31,6 @@ function isValidHttpUrl(string) {
         error = 'Złe rozszerzenie linku';
     }
 
-    return error;
 }
 
 
