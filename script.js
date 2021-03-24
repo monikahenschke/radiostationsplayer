@@ -1,21 +1,20 @@
 
-
+  const radioStationsArray = [
+    {id: 'cat-country', name: 'Cat County 98.1', link:'http://17573.live.streamtheworld.com/WCTKFMAAC.aac'},
+    {id: 'americas-country', name: 'America\'s Country', link:'https://ais-sa2.cdnstream1.com/1976_128.mp3'},
+    {id: 'ktwb-big-country', name: 'KTWB Big Country 92.5', link:'https://14083.live.streamtheworld.com/KTWBFMAAC.aac'},
+    {id: 'country-208', name: 'Country 108',link:'http://icepool.silvacast.com/COUNTRY108.mp3'},
+    {id: 'kickin-country', name: 'Kickin\' Country 181.fm', link:'https://listen.181fm.com/181-kickincountry_128k.mp3'}
+];
 window.addEventListener('DOMContentLoaded',() => {
-
-    const radioStations = [
-        {id: 'cat-country', name: 'Cat County 98.1', link:'http://17573.live.streamtheworld.com/WCTKFMAAC.aac'},
-        {id: 'americas-country', name: 'America\'s Country', link:'https://ais-sa2.cdnstream1.com/1976_128.mp3'},
-        {id: 'ktwb-big-country', name: 'KTWB Big Country 92.5', link:'https://14083.live.streamtheworld.com/KTWBFMAAC.aac'},
-        {id: 'country-208', name: 'Country 108',link:'http://icepool.silvacast.com/COUNTRY108.mp3'},
-        {id: 'kickin-country', name: 'Kickin\' Country 181.fm', link:'https://listen.181fm.com/181-kickincountry_128k.mp3'}
-    ];
     
     const stations = document.querySelectorAll('.station');
     const audio = document.querySelector('#audio');
     const currentRadioStationNameHeader = document.querySelector('.station-name');
     const playButton = document.querySelector('.play.button');
     const pauseButton = document.querySelector('.pause.button');
-    const addNewRadioStationButton = document.querySelector('.buttonBlack');
+    const showAddingRadioStationForm = document.querySelector('#showAddingRadioStationForm');
+    const addNewRadioStationButton = document.querySelector('#addNewRadioStationButton');
     const addNewRadioStationForm = document.querySelector('.form');
     let chosenRadioStation;
     let lastChoice;
@@ -23,8 +22,9 @@ window.addEventListener('DOMContentLoaded',() => {
     
     function stationSelection(event){
 
+
         const newRadioStation = event.currentTarget.getAttribute('data-station-id');
-        const selectedRadioStation = radioStations.find(station => station.id === newRadioStation);
+        const selectedRadioStation = radioStationsArray.find(station => station.id == newRadioStation);
 
         if (selectedRadioStation) {
                 audio.setAttribute('src', selectedRadioStation.link);
@@ -36,6 +36,7 @@ window.addEventListener('DOMContentLoaded',() => {
         }
         chosenRadioStation = selectedRadioStation;    
     }
+    
 
     function changeColorRadioStationName(radioStationId) {
 
@@ -70,8 +71,8 @@ window.addEventListener('DOMContentLoaded',() => {
     }
     
     function getRandomStation(){
-        const randomInt = getRandomInt(0, radioStations.length - 1);
-        return radioStations[randomInt];
+        const randomInt = getRandomInt(0, radioStationsArray.length - 1);
+        return radioStationsArray[randomInt];
     }
 
     function playStation() {
@@ -85,7 +86,6 @@ window.addEventListener('DOMContentLoaded',() => {
 
     }
 
-
     function pauseStation(){
         if(chosenRadioStation) {
             audio.pause();
@@ -96,12 +96,9 @@ window.addEventListener('DOMContentLoaded',() => {
     }
 
 
-
-
     playButton.addEventListener('click', playStation);
     pauseButton.addEventListener('click', pauseStation);
-    addNewRadioStationButton.addEventListener('click', showForm);
+    showAddingRadioStationForm.addEventListener('click', showForm);
     stations.forEach(station => station.addEventListener('dblclick', stationSelection));
-
-
+    
 });

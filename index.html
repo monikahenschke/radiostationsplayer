@@ -31,7 +31,7 @@
                 </div>
                 <div class="addNewStation">
                     <span>Za mało stacji radiowych? Dodaj nową!</span>
-                    <button class="buttonBlack">Dodaj</button>
+                    <button class="buttonBlack" id="showAddingRadioStationForm" >Dodaj</button>
                 </div>
                 <div class="form">
                     <input placeholder="Nazwa" type="text" name="newRadioStationName" id="newRadioStationName">
@@ -45,32 +45,40 @@
 
                 <div class="stationList">
                     <p>Dostępne stacje: </p>
-                    <div class="stations">
-                        <button class="station" data-station-id="cat-country">
-                            1. <span>Cat Country 98.1</span>
-                        </button>
-
-                        <button class="station" data-station-id="americas-country">
-                            2. <span>America's Country</span>
-                        </buttton>
-
-                        <button class="station" data-station-id="ktwb-big-country">
-                            3. <span>KTWB Big Country 92.5</span>
-                        </button>
-
-                        <button class="station" data-station-id="country-208">
-                            4. <span>Country 108</span>
-                        </button>
-
-                        <button class="station" data-station-id="kickin-country">
-                            5. <span>Kickin' Country 181.fm</span>
-                        </button>
-                    </div>
+                    <ol class="stations">
+                        <li>
+                            <button class="station" data-station-id="cat-country">
+                                <span>Cat Country 98.1</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="station" data-station-id="americas-country">
+                                <span>America's Country</span>
+                            </buttton>
+                        </li>
+                        <li>
+                            <button class="station" data-station-id="ktwb-big-country">
+                                <span>KTWB Big Country 92.5</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="station" data-station-id="country-208">
+                                <span>Country 108</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="station" data-station-id="kickin-country">
+                                <span>Kickin' Country 181.fm</span>
+                            </button>
+                        </li>
+                    </ol>
                 </div>
             </div>
           
          </div>
      </body>
+     <script type="text/javascript" src="stationsadding.js"></script>
+    
      <script type="text/javascript" src="script.js"></script>
      <script type="text/javascript" src="validate.js"></script>
 

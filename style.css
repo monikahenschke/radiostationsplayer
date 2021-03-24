@@ -104,7 +104,7 @@ html, body {
 .stations {
     display: flex;
     flex-direction: column;
-    padding-left: 20px;
+    margin-left: 20px;
 }
 .addNewStation {
     font-weight: 600;
