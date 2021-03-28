@@ -35,7 +35,7 @@ html, body {
 }
 
 
-.circle{
+.player__circle{
   width:100px;
   height:100px;
   border:1px solid #000000;
@@ -55,6 +55,7 @@ html, body {
   overflow:hidden;
   margin:auto;
   animation: circle 6s linear infinite;
+  animation-play-state: paused;
 }
 
 @keyframes circle{
@@ -70,7 +71,7 @@ html, body {
               rotate(-360deg);
   }
 }
-.station-name {
+.cassette__name {
     font-size: 20px;
     font-weight: 600;
 }
@@ -92,6 +93,7 @@ html, body {
 }
 .button:focus {
     outline: none;
+    border: 1px solid #000000;
 }
 .stationList p {
     font-size: 20px;
@@ -101,7 +103,7 @@ html, body {
     max-width: 50px;
     max-height: 50px;
 }
-.stations {
+.stationList__stations {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
@@ -123,8 +125,10 @@ html, body {
     border: none;
 }
 .buttonBlack:focus {
-    border: none;
+    border: 1px solid #000000;
     outline: none;
+    background: #FFC04C;
+    color: #000000;
 }
 .buttonBlack:disabled {
 
@@ -153,6 +157,7 @@ html, body {
 }
 .station:focus {
 border: none;
+border-bottom: 1px solid #000000;
 outline: none;
 }
 .station p {
@@ -176,6 +181,8 @@ outline: none;
 }
 .form input:focus {
     outline: none;
+    border: 1px solid #000000;
+
 }
 .validationInput {
     display: flex;
@@ -190,3 +197,7 @@ outline: none;
     position: absolute;
     top: 100%;
 }
+
+.animation-running .circle__animation{
+    animation-play-state: running;
+} 

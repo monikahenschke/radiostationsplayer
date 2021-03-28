@@ -9,77 +9,78 @@
      <body>
          <div class="main">
              <h1>Odtwarzacz stacji radiowych Country! </h1>
-            <div class="container">
-                <div class="left">
-                    <div class="cassette">
-                    <div class="station-name">Nazwa aktualnie odtwarzanej stacji</div>
-                    <div class="player">
-                        <div class="circle"><div class="circle__animation"></div></div>
-                        <div class="circle"><div class="circle__animation"></div></div>
-                    </div>
-                    <div class="buttons">
-                        <button class="play button">
-                            <img src="play.svg" />
+            <div class="main__container container">
+          
+
+            <div class="main__right stationList">
+                <p class="stationList__name">Dostępne stacje: </p>
+                <ol id="list" class="stationList__stations">
+                    <li>
+                        <button class="station" data-station-id="cat-country">
+                            <span>Cat Country 98.1</span>
                         </button>
-                        <button class="pause button">
-                            <img src="pause.svg" />
+                    </li>
+                    <li>
+                        <button class="station" data-station-id="americas-country">
+                            <span>America's Country</span>
+                        </buttton>
+                    </li>
+                    <li>
+                        <button class="station" data-station-id="ktwb-big-country">
+                            <span>KTWB Big Country 92.5</span>
                         </button>
-                    </div>
-                    <audio id="audio">
-                        <source src="" type="audio/mp3">
-                    </audio>
-                </div>
-                <div class="addNewStation">
-                    <span>Za mało stacji radiowych? Dodaj nową!</span>
-                    <button class="buttonBlack" id="showAddingRadioStationForm" >Dodaj</button>
-                </div>
-                <div class="form">
-                    <input placeholder="Nazwa" type="text" name="newRadioStationName" id="newRadioStationName">
-                    <div class="validationInput">
-                        <input placeholder="URL" type="text" name="newRadioStationURL" id="newRadioStationURL">
-                        <span class="error"></span>
-                    </div>
-                    <button class="buttonBlack" id="addNewRadioStationButton" type="submit" disabled>Wyślij</button>
-                </div>
+                    </li>
+                    <li>
+                        <button class="station" data-station-id="country-208">
+                            <span>Country 108</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="station" data-station-id="kickin-country">
+                            <span>Kickin' Country 181.fm</span>
+                        </button>
+                    </li>
+                </ol>
             </div>
 
-                <div class="stationList">
-                    <p>Dostępne stacje: </p>
-                    <ol class="stations">
-                        <li>
-                            <button class="station" data-station-id="cat-country">
-                                <span>Cat Country 98.1</span>
-                            </button>
-                        </li>
-                        <li>
-                            <button class="station" data-station-id="americas-country">
-                                <span>America's Country</span>
-                            </buttton>
-                        </li>
-                        <li>
-                            <button class="station" data-station-id="ktwb-big-country">
-                                <span>KTWB Big Country 92.5</span>
-                            </button>
-                        </li>
-                        <li>
-                            <button class="station" data-station-id="country-208">
-                                <span>Country 108</span>
-                            </button>
-                        </li>
-                        <li>
-                            <button class="station" data-station-id="kickin-country">
-                                <span>Kickin' Country 181.fm</span>
-                            </button>
-                        </li>
-                    </ol>
+            <div class="main__left">
+                <div class="cassette">
+                <div class="cassette__name">Nazwa aktualnie odtwarzanej stacji</div>
+                <div class="cassette__player player">
+                    <div class="player__circle circle"><div class="circle__animation"></div></div>
+                    <div class="player__circle circle"><div class="circle__animation"></div></div>
                 </div>
+                <div class="cassette__buttons buttons">
+                    <button class="play button">
+                        <img src="play.svg" />
+                    </button>
+                    <button class="pause button">
+                        <img src="pause.svg" />
+                    </button>
+                </div>
+                <audio class="cassette__audio" id="audio">
+                    <source src="" type="audio/mp3">
+                </audio>
             </div>
-          
-         </div>
+            <div class="addNewStation">
+                <span>Za mało stacji radiowych? Dodaj nową!</span>
+                <button class="buttonBlack" id="showAddingRadioStationForm" >Dodaj</button>
+            </div>
+            <div class="form">
+                <input placeholder="Nazwa" type="text" name="newRadioStationName" id="newRadioStationName">
+                <div class="validationInput">
+                    <input placeholder="URL" type="text" name="newRadioStationURL" id="newRadioStationURL">
+                    <span class="error"></span>
+                </div>
+                <button class="buttonBlack" id="addNewRadioStationButton" type="submit" disabled>Wyślij</button>
+            </div>
+        </div>
+        
+        </div>  
      </body>
      <script type="text/javascript" src="stationsadding.js"></script>
-    
      <script type="text/javascript" src="script.js"></script>
      <script type="text/javascript" src="validate.js"></script>
+     <script type="text/javascript" src="formshowing.js"></script>
 
 </html>
