@@ -4,83 +4,100 @@
           <meta charset="UTF-8" />
           <title>Odtwarzacz stacji radiowych Country</title>
           <link rel="stylesheet" href="style.css">
+          <link rel="stylesheet" href="Montserrat-font/stylesheet.css">
           <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
      <body>
-         <div class="main">
-             <h1>Odtwarzacz stacji radiowych Country! </h1>
-            <div class="main__container container">
-          
+         <header class="header container">
+             <div class="header__logo"><img src="images/logo-cp.png" class="header__logo"></div>
+         </header>
+         <div class="main container">
+            <div class="main__container ">
+                <div class="main__left stationList">
+                    <div class="addNewStation">
+                        <div class="form addNewStation__layer">
+                            <div class="form__container">
+                                <div class="form__name">
+                                    <p>Dodaj nową stację radiową:</p>
+                                </div>
+                                <div class="form__fields">
+                                    <input placeholder="Nazwa" type="text" name="newRadioStationName" id="newRadioStationName">
+                                    <div class="validationInput">
+                                        <input placeholder="URL" type="text" name="newRadioStationURL" id="newRadioStationURL">
+                                        <span class="error"></span>
+                                    </div>
+                                    <button class="buttonBlack" id="addNewRadioStationButton" type="submit" disabled>Dodaj</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="addNewStation__button" id="showAddingRadioStationForm" >
+                            <img src="images/add.png">
+                        </button>
+                    </div>
+                    <ol id="list" class="stationList__stations">
+                        <li>
+                            <button class="station" data-station-id="cat-country">
+                                <span>Cat Country 98.1</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="station" data-station-id="americas-country">
+                                <span>America's Country</span>
+                            </buttton>
+                        </li>
+                        <li>
+                            <button class="station" data-station-id="ktwb-big-country">
+                                <span>KTWB Big Country 92.5</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="station" data-station-id="country-208">
+                                <span>Country 108</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="station" data-station-id="kickin-country">
+                                <span>Kickin' Country 181.fm</span>
+                            </button>
+                        </li>
+                    </ol>
+                
+                </div>
 
-            <div class="main__right stationList">
-                <p class="stationList__name">Dostępne stacje: </p>
-                <ol id="list" class="stationList__stations">
-                    <li>
-                        <button class="station" data-station-id="cat-country">
-                            <span>Cat Country 98.1</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="station" data-station-id="americas-country">
-                            <span>America's Country</span>
-                        </buttton>
-                    </li>
-                    <li>
-                        <button class="station" data-station-id="ktwb-big-country">
-                            <span>KTWB Big Country 92.5</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="station" data-station-id="country-208">
-                            <span>Country 108</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="station" data-station-id="kickin-country">
-                            <span>Kickin' Country 181.fm</span>
-                        </button>
-                    </li>
-                </ol>
-            </div>
-
-            <div class="main__left">
-                <div class="cassette">
-                <div class="cassette__name">Nazwa aktualnie odtwarzanej stacji</div>
-                <div class="cassette__player player">
-                    <div class="player__circle circle"><div class="circle__animation"></div></div>
-                    <div class="player__circle circle"><div class="circle__animation"></div></div>
+                <div class="main__right">
+                    <div class="main__cassette">
+                        <div class="cassette">
+                            <div class="cassette__name">Wybierz stację lub naciśnij play</div>
+                            <div class="cassette__player player">
+                                <div class="player__circle circle"><div class="circle__animation"></div></div>
+                                <div class="player__circle circle"><div class="circle__animation"></div></div>
+                            </div>
+                            <audio class="cassette__audio" id="audio">
+                                <source src="" type="audio/mp3">
+                            </audio>
+                        </div>
+                        <div class="cassette__buttons buttons">
+                            <button class="play button">
+                                <img src="images/play.svg" />
+                            </button>
+                            <button class="pause button">
+                                <img src="images/pause.svg" />
+                            </button>
+                        </div>
+                    </div>
+                  
                 </div>
-                <div class="cassette__buttons buttons">
-                    <button class="play button">
-                        <img src="play.svg" />
-                    </button>
-                    <button class="pause button">
-                        <img src="pause.svg" />
-                    </button>
-                </div>
-                <audio class="cassette__audio" id="audio">
-                    <source src="" type="audio/mp3">
-                </audio>
-            </div>
-            <div class="addNewStation">
-                <span>Za mało stacji radiowych? Dodaj nową!</span>
-                <button class="buttonBlack" id="showAddingRadioStationForm" >Dodaj</button>
-            </div>
-            <div class="form">
-                <input placeholder="Nazwa" type="text" name="newRadioStationName" id="newRadioStationName">
-                <div class="validationInput">
-                    <input placeholder="URL" type="text" name="newRadioStationURL" id="newRadioStationURL">
-                    <span class="error"></span>
-                </div>
-                <button class="buttonBlack" id="addNewRadioStationButton" type="submit" disabled>Wyślij</button>
             </div>
         </div>
-        
-        </div>  
+        <footer class="footer container">
+                <p class="footer__p">countryplayer by Monika Henschke</p>
+        </footer>
      </body>
      <script type="text/javascript" src="stationsadding.js"></script>
      <script type="text/javascript" src="script.js"></script>
      <script type="text/javascript" src="validate.js"></script>
      <script type="text/javascript" src="formshowing.js"></script>
+     <script type="text/javascript" src="formhiding.js"></script>
+
 
 </html>

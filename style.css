@@ -3,28 +3,56 @@ html, body {
     margin: 0;
     width: 100%;
     height: 100%;
+    font-family: 'Montserrat';
 
 }
+
+:root {
+    --yellow: #F5BF2B;
+    --white: #ffffff;
+    --border: #E8E8E8;
+    --black: #323232;
+    --darkyellow: #F59F2B;
+    --lightyellow: #ffffff;
+  }
+  
+
+.container {
+    margin: 0 auto;
+    padding: 0 30px;
+    /* max-width: 1200px; */
+  }
+
 .main {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    background: #f5f5dc;
-    width: 100%;
-    height: 100%;
     flex-direction: column;
+    background-color: var(--yellow);
+
+}
+
+
+.main__container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    flex-wrap: wrap;
 }
 .cassette {
-    width: 600px;
-    /* height: 400px; */
+    width: 80%;
+    max-width: 550px;
     box-sizing: border-box;
-    background: #FFC04C;
+    border: 3px solid var(--darkyellow);
     border-radius: 30px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    background-image: url('images/background-cassette.jpg');
+    background-size: cover;
 
 }
 .player{
@@ -36,19 +64,21 @@ html, body {
 
 
 .player__circle{
-  width:100px;
-  height:100px;
-  border:1px solid #000000;
+  width:50px;
+  height:50px;
+  border:1px solid var(--black);
   position: relative;
   top:0; bottom:0; left:0;right:0;
+  background-color: var(--lightyellow);
   margin:auto;
   border-radius:50%; 
 }
 
 .circle__animation{
-  width:20px;
-  height:20px;
-    background: #000000;  
+  width:12px;
+  height:12px;
+  border: 1px solid var(--black);
+    background: var(--darkyellow);  
     border-radius:50%;
   position:absolute;
   top:0; bottom:0; left:0;right:0;
@@ -61,19 +91,25 @@ html, body {
 @keyframes circle{
   0%{
     transform:rotate(0deg)
-              translate(-50px)
+              translate(-25px)
               rotate(0deg);
   
   }
   100%{
     transform:rotate(360deg)
-              translate(-50px)
+              translate(-25px)
               rotate(-360deg);
   }
 }
 .cassette__name {
-    font-size: 20px;
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
     font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.60);
+    border: 1px solid var(--darkyellow);
+    border-radius: 10px;
+    padding: 10px 20px;
 }
 .buttons {
     display: flex;
@@ -83,8 +119,9 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    padding: 6px;
+    width: 70px;
+    height: 70px;
     margin: 20px;
     background: transparent;
     border: none;
@@ -94,6 +131,12 @@ html, body {
 .button:focus {
     outline: none;
     border: 1px solid #000000;
+    border-radius: 20px;
+}
+.button:hover {
+    outline: none;
+    border: 1px solid #000000;
+    border-radius: 50%;
 }
 .stationList p {
     font-size: 20px;
@@ -106,13 +149,17 @@ html, body {
 .stationList__stations {
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
+    list-style-type: none;
+    padding-left: 0;
 }
 .addNewStation {
     font-weight: 600;
     font-size: 18px;
-    padding-top: 20px;
+    padding-top: 15px;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .buttonBlack {
@@ -137,12 +184,16 @@ html, body {
 .station {
     color: #000000;
     text-decoration: none;
-    padding: 6px;
     cursor: pointer;
     font-size: 17px;
     background: transparent;
     border: none;
     text-align: left;
+    height: 50px;
+    width: 100%;
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    position: relative;
 
 }
 .container {
@@ -152,24 +203,78 @@ html, body {
 .station.active {
     color: #e59400;
 }
-.station:hover {
-    color: #e59400;
+.station::after {
+    content: '';
+    width: 100%;
+    z-index: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+@keyframes stationSelection {
+
+
+    0% {
+        width: 0;
+        background-color: var(--white);
+    }
+    100% {
+        width: 100%;
+        background-color: var(--yellow);
+    }
+}
+.station:hover::after{
+    animation: stationSelection 1s ease 0s 1 normal forwards;
 }
 .station:focus {
-border: none;
-border-bottom: 1px solid #000000;
-outline: none;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
 }
-.station p {
-    margin: 0;
+.station span {
+    position: absolute;
+    left: 20px;
+    padding-right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
 }
 .form {
-    text-align: center;
-    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     visibility: hidden;
+    height: 0;
+    width: 0;
 }
-.form.active {
+
+.addNewStation__layer.active  {
+
+    position: absolute;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255,255,255,0.7);
     visibility: visible;
+    top: 0;
+    left: 0;
+    
+}
+.form.active .form__container{
+    visibility: visible;
+    position: absolute;
+    padding: 20px;
+    height: 300px;
+    background: var(--white);
+    top: 50%;
+    left: 50%;
+    width: auto;
+    border-radius: 20px;
+    border: 1px solid var(--black);
+    z-index: 99;
+    transform: translate(-50%, -50%);
 }
 .form input {
     height: 40px;
@@ -177,7 +282,7 @@ outline: none;
     width: 180px;
     border: #e59400 1px solid;
     padding: 0 15px;
-    margin-bottom: 8px;
+    margin: 6px;
 }
 .form input:focus {
     outline: none;
@@ -189,7 +294,6 @@ outline: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
     position: relative;
 }
 .validationInput span {
@@ -201,3 +305,123 @@ outline: none;
 .animation-running .circle__animation{
     animation-play-state: running;
 } 
+
+.header__logo {
+    width: 220px;
+    padding: 0 10px;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid;
+    border-bottom-color: var(--border);
+}
+
+.main__left {
+    min-width: 30%;
+    background-color: var(--white);
+    align-self: stretch;
+    padding-right: 20px;
+    flex-grow: 1;
+}
+.main__right {
+    flex-grow: 1;
+    align-self: stretch;
+
+}
+.main__cassette {
+    background-color: var(--lightyellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    height: 100%;
+    flex-direction: column;
+
+}
+.footer{
+    height: 60px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* background: #fadb89; */
+}
+.addNewStation__button img {
+    width: 25px;
+    height: 25px;
+}
+.addNewStation__button{
+    cursor: pointer;
+    padding: 4px;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: 1px solid transparent;
+
+}
+.addNewStation__button:focus {
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    outline: none;
+}
+.addNewStation__button:hover {
+    border: 1px solid var(--black);
+    border-radius: 50%;
+
+}
+.form__fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 500px) {
+
+    .cassette {
+        width: 60%;
+        max-width: 550px;
+        min-width: 370px;
+     
+    
+    }
+
+    .player__circle{
+        width:70px;
+        height:70px;
+      }
+
+      @keyframes circle{
+        0%{
+          transform:rotate(0deg)
+                    translate(-35px)
+                    rotate(0deg);
+        
+        }
+        100%{
+          transform:rotate(360deg)
+                    translate(-35px)
+                    rotate(-360deg);
+        }
+      }
+      .cassette__name {
+        font-size: 20px;
+      }
+  
+      .main__cassette {
+          min-height: 500px;
+      }
+}
+
+@media (min-width: 600px) {
+    .form__fields {
+        flex-direction: row;
+        align-items: center;
+    }
+    .form.active .form__container{
+        height: 150px;
+    }
+}

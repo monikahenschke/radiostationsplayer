@@ -32,8 +32,6 @@ window.addEventListener('DOMContentLoaded',() => {
 
         if(radioStations) {
         radioStationsArray.push(...radioStations);
-        //radioStationsArray.push.apply(radioStationsArray,radioStations);
-        //radioStationsArray = radioStationsArray.concat(radioStations);
         
         radioStations.forEach(station => {
 
@@ -60,7 +58,12 @@ window.addEventListener('DOMContentLoaded',() => {
         newStationName.value = "";
     }
 
+
     function onSendNewRadtioStation() {
+        const addNewStationBackgroundClassName = ".addNewStation__layer";
+        const formLayer = document.querySelector(addNewStationBackgroundClassName);
+
+        hideForm(formLayer);
         const newUniqueId = generateUniqueId();
         const radioStationAdded = getRadioStationFromForm(newUniqueId);
       
